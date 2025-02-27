@@ -1,26 +1,20 @@
+#include <stdio.h>
+#include <string.h>
+#include "book_mngr.h"
 
-typedef struct 
+book_t books[MAX_BOOKS];
+int book_size = 0;
+
+
+void display_books(book_t *p_book, int book_size)
 {
-    char author[50];
-    char book_name[50];
-    int year;
-} Book;
-
-
-// display book
-
-Book books[10];
-int book_count = 0;
-
-void display(Book books[], int book_count)
-{
-    if (book_count == 0)
+    if (book_size == 0)
     {
-        printf("No Books");
+        printf("No books");
         return;
     }
 
-    for(int i = 0; i < book_count; i++)
+    for(int i = 0; i < book_size; i++)
     {
         printf("%s\n", books[i].author);
         printf("%s\n", books[i].book_name);

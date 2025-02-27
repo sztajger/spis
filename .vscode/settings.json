@@ -1,0 +1,6 @@
+{
+    "files.associations": {
+        "book_mngr.h": "c",
+        "stdio.h": "c"
+    }
+}

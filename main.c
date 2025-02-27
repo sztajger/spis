@@ -6,15 +6,17 @@
 
 int main()
 {
-    Book book1;
-    strcpy(book1.author, "tomek");
-    strcpy(book1.book_name, "hary poter kontra hipopotam");
-    book1.year = 1000;
+    book_t book1 =
+    {
+        .author = "tomek",
+        .book_name = "hary poter kontra hipopotam",
+    .year = 111
+    };
     
-    books[book_count] = book1;
-    book_count++;
+    books[book_size] = book1;
+    book_size++;
 
-    display(books, book_count);
+    display_books(books, book_size);
 
 
 
