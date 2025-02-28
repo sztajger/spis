@@ -6,20 +6,21 @@
 
 int main()
 {
+    
+    // For testig purpose only
+    /*
     book_t book1 =
     {
-        .author = "tomek",
-        .book_name = "hary poter kontra hipopotam",
-    .year = 111
+        .author = "Tom",
+        .book_name = "Hary Poper",
+        .year = 111
     };
-    
-    books[book_size] = book1;
-    book_size++;
 
-    display_books(books, book_size);
+    add_book(book1);
 
+    display_books(books, book_cnt);
 
-
+    */
 
     return 0;
 }

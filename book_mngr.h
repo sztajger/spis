@@ -10,9 +10,15 @@ typedef struct
     int year;
 } book_t;
 
-extern book_t books[MAX_BOOKS];
-extern int book_size;
+typedef enum 
+{
+    BOOK_SUCCESS = 0,
+    BOOK_MNGR_ERR_SIZE
+}book_mngr_err_t;
 
-void display_books(book_t *p_book, int book_size);
+
+
+void display_books(book_t *p_book, int book_cnt);
+book_mngr_err_t add_book(book_t book);
 
 #endif

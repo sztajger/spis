@@ -1,6 +1,8 @@
 {
     "files.associations": {
         "book_mngr.h": "c",
-        "stdio.h": "c"
-    }
+        "stdio.h": "c",
+        "string.h": "c"
+    },
+    "C_Cpp.errorSquiggles": "disabled"
 }
