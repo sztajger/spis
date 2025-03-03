@@ -39,3 +39,14 @@ book_mngr_err_t add_book(book_t book)
     return BOOK_SUCCESS;
 }
 
+book_mngr_err_t delete_last_book()
+{
+    if (book_cnt ==0)
+    {
+        return BOOK_MNGR_ERR_EMPTY; // Error if ther are no books in lbrary -2
+    }
+
+    book_cnt--;
+    return BOOK_SUCCESS;
+}
+
