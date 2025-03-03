@@ -46,7 +46,7 @@ book_mngr_err_t delete_last_book()
         return BOOK_MNGR_ERR_EMPTY; // Error if ther are no books in lbrary -2
     }
 
-    book_cnt--;
+    book_cnt--; //decrese the count, not sure if its correct this function work, will test this later
     return BOOK_SUCCESS;
 }
 
