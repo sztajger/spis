@@ -5,49 +5,48 @@
 
 int main()
 {
-    char input[10];
-    int choice;
-    book_t new_book;
-    book_mngr_err_t result;
+    char input[10] = {0};
+    int choice = 0;
+    book_mngr_err_t result = BOOK_SUCCESS;
 
     while(1)
     {
         printf("---MENU---\n");
-        printf("1. Dodaj ksiazke\n");
-        printf("2. Wyswietl ksiazki\n");
-        printf("3. Usun ostatnio dodana ksiazke\n");
-        printf("4. Wyjdz\n");
-        printf("Wybierze opcje: ");
+        printf("1. Add book\n");
+        printf("2. Display books\n");
+        printf("3. Delete last added book\n");
+        printf("4. Exit\n");
+        printf("CHoose option: ");
     
-
         if (!fgets(input, sizeof(input), stdin)) 
         {
             printf("Błąd odczytu!\n");
             continue;
         }
 
-        // Zamiana inputu na liczbe
+        // change input to number
         if (sscanf(input, "%d", &choice) != 1) 
         {
-            printf("Nieprawidłowy wybór, spróbuj ponownie.\n");
+            printf("Wrong choice, try again.\n");
             continue;
         }
 
         switch (choice)
         {
         case 1:
-            printf("Podaj autora:");
+            book_t new_book = {"", "", 0};
+            printf("Author:");
             fgets(new_book.author, sizeof(new_book.author), stdin);
             new_book.author[strcspn(new_book.author, "\n")] = 0;
 
-            printf("Podaj tytul:");
+            printf("Title:");
             fgets(new_book.book_name, sizeof(new_book.book_name), stdin);
-            new_book.book_name[strcspn(new_book.book_name, "\n")] = 0;
+            new_book.book_name[strcspn(new_book.bo4ok_name, "\n")] = 0;
 
-            printf("Podaj rok wydania: ");
+            printf("Year of release: ");
                 if (scanf("%d", &new_book.year) != 1) {
-                    printf("Badd: Niepoprawny format roku!\n");
-                    while (getchar() != '\n');  // Czyści błędne wejście
+                    printf("Erro: wrong year format!\n");
+                    while (getchar() != '\n');  
                     break;
                 }
             getchar(); 
@@ -55,11 +54,11 @@ int main()
             result = add_book(new_book);
             if (result == BOOK_SUCCESS) 
             {
-                printf("Ksiazka dodana poprawnie\n");
+                printf("Book added correctly\n");
             }
             else
             {
-                printf("Blad");
+                printf("Error: Book not added\n");
             }
 
             break;
@@ -71,20 +70,20 @@ int main()
         case 3:
             result = delete_last_book();
             if (result == BOOK_SUCCESS) {
-                printf("Ostatnia książka została usunięta.\n");
+                printf("Last book deleted.\n");
             }
             else 
             {
-                printf("Brak książek do usunięcia!\n");
+                printf("No book to delete!\n");
             }
             break;
 
             case 4:
-                printf("Zamykanie programu...\n");
+                printf("Closing the program...\n");
                 return 0;
 
             default:
-                printf("Nieprawidłowy wybór, spróbuj ponownie.\n");
+                printf("Wrong choice, try again.\n");
         };
     };
     return 0;

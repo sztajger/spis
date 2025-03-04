@@ -14,7 +14,7 @@ typedef enum
 {
     BOOK_SUCCESS = 0,
     BOOK_MNGR_ERR_SIZE = -1,
-    BOOK_MNGR_ERR_EMPTY = 2
+    BOOK_MNGR_ERR_EMPTY = -2
 }book_mngr_err_t;
 
 
