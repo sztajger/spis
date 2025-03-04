@@ -16,7 +16,7 @@ int main()
         printf("2. Display books\n");
         printf("3. Delete last added book\n");
         printf("4. Exit\n");
-        printf("CHoose option: ");
+        printf("Choose option: ");
     
         if (!fgets(input, sizeof(input), stdin)) 
         {
@@ -34,18 +34,18 @@ int main()
         switch (choice)
         {
         case 1:
-            book_t new_book = {"", "", 0};
+            book_t new_book = {0};
             printf("Author:");
             fgets(new_book.author, sizeof(new_book.author), stdin);
             new_book.author[strcspn(new_book.author, "\n")] = 0;
 
             printf("Title:");
             fgets(new_book.book_name, sizeof(new_book.book_name), stdin);
-            new_book.book_name[strcspn(new_book.bo4ok_name, "\n")] = 0;
+            new_book.book_name[strcspn(new_book.book_name, "\n")] = 0;
 
             printf("Year of release: ");
                 if (scanf("%d", &new_book.year) != 1) {
-                    printf("Erro: wrong year format!\n");
+                    printf("Error: wrong year format!\n");
                     while (getchar() != '\n');  
                     break;
                 }
