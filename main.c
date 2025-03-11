@@ -15,7 +15,8 @@ int main()
         printf("1. Add book\n");
         printf("2. Display books\n");
         printf("3. Delete last added book\n");
-        printf("4. Exit\n");
+        printf("4. Save lib\n");
+        printf("5. Exit\n");
         printf("Choose option: ");
     
         if (!fgets(input, sizeof(input), stdin)) 
@@ -77,13 +78,19 @@ int main()
                 printf("No book to delete!\n");
             }
             break;
+        case 4:
+            save_books();
+            printf("Saving...\n");
+            break;
 
-            case 4:
-                printf("Closing the program...\n");
-                return 0;
+        case 5:
+            printf("Closing the program...\n");
+            return 0;
 
-            default:
-                printf("Wrong choice, try again.\n");
+        default:
+            printf("Wrong choice, try again.\n");
+        
+        
         };
     };
     return 0;

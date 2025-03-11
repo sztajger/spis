@@ -50,3 +50,18 @@ book_mngr_err_t delete_last_book()
     return BOOK_SUCCESS;
 }
 
+void save_books()
+{
+    FILE * file = fopen("books_lib.txt", "w");
+    if(!file)
+    {
+        printf("Error, cant save!\n");
+        return;
+    }
+
+    for (int i = 0; i< book_cnt; i++)
+    {
+        fprintf(file, "%s\n%s\n%d\n", books[i].book_name, books[i].author, books[i].year);
+    }
+    fclose(file);
+}
