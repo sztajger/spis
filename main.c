@@ -1,4 +1,4 @@
-#include <stdio.h>
+ #include <stdio.h>
 #include <string.h>
 #include "book_mngr.c"
 
@@ -15,7 +15,9 @@ int main()
         printf("1. Add book\n");
         printf("2. Display books\n");
         printf("3. Delete last added book\n");
-        printf("4. Exit\n");
+        printf("4. Save lib\n");
+        printf("5. Load lib\n");
+        printf("6. Exit\n");
         printf("Choose option: ");
     
         if (!fgets(input, sizeof(input), stdin)) 
@@ -78,12 +80,22 @@ int main()
             }
             break;
 
-            case 4:
-                printf("Closing the program...\n");
-                return 0;
+        case 4:
+            save_lib();
+            printf("Saving...\n");
+            break;
 
-            default:
-                printf("Wrong choice, try again.\n");
+        case 5:
+            load_lib();
+            printf("Loading...\n");
+            break;
+            
+        case 6:
+            printf("Closing the program...\n");
+            return 0;
+
+        default:
+            printf("Wrong choice, try again.\n");
         };
     };
     return 0;

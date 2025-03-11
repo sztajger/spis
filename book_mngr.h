@@ -2,6 +2,7 @@
 #define BOOK_MNGR_H
 
 #define MAX_BOOKS 100
+#define FILE_NAME "books_lib.txt"
 
 typedef struct 
 {
@@ -21,5 +22,8 @@ typedef enum
 
 void display_books(book_t *p_book, int book_cnt);
 book_mngr_err_t add_book(book_t book);
+book_mngr_err_t delete_last_book();
+void save_lib();
+void load_lib();
 
 #endif
