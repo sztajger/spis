@@ -50,3 +50,39 @@ book_mngr_err_t delete_last_book()
     return BOOK_SUCCESS;
 }
 
+void save_lib()
+{
+    FILE * file = fopen(FILE_NAME, "w");
+    if(!file)
+    {
+        printf("Error, cant save!\n");
+        return;
+    }
+
+    for (int i = 0; i< book_cnt; i++)
+    {
+        fprintf(file, "%s\n%s\n%d\n", books[i].book_name, books[i].author, books[i].year);
+    }
+    fclose(file);
+}
+
+void load_lib()
+{
+    FILE * file = fopen(FILE_NAME, "r");
+    if(!file)
+    {
+        printf("No file!\n");
+        return;
+    }
+
+    book_cnt = 0; //set actual book_cnt = 0
+    while (fscanf(file, " %[^\n]\n%[^\n]\n%d", books[book_cnt].book_name, books[book_cnt].author, &books[book_cnt].year) == 3) 
+    {
+        book_cnt ++;
+        if (book_cnt >= MAX_BOOKS) break;
+    }
+    {
+        /* code */
+    }
+    
+}
